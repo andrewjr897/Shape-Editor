@@ -162,18 +162,18 @@ form label:active, form button:active {
 <body>
 	
 	<div class="positiontopleft">
-		<input class="button" type="image" src="images/upload.webp" onclick="uploadFile();">
-		<input class="button" type="image" id="saveFile" src="images/save.png" onclick="save();" />
-		<input class="button" type="image" src="images/newfile.png" onclick="newFile();">
-		<input class="button" type="image" src="images/image.png" onclick="downloadImage();">
+		<input class="button" type="image" src="images/upload.webp" title="Upload File" onclick="uploadFile();">
+		<input class="button" type="image" id="saveFile" src="images/save.png" title="Save File" onclick="save();" />
+		<input class="button" type="image" src="images/newfile.png" title="New File" onclick="newFile();">
+		<input class="button" type="image" src="images/image.png" title="Download to JPEG" onclick="downloadImage();">
 	</div>
 	
 
 	<div class="positiontopright">
-		<input class="button" type="image" src="images/info.png" onclick="selectedInfo();">
-		<input class="button" type="image" src="images/delete.png" onclick="deleteSelected();" />
-		<input class="button" type="image" src="images/copy.png" onclick="copySelected();" />
-		<input class="button" type="image" src="images/paste.png" onclick="pasteSelected();" />
+		<input class="button" type="image" src="images/info.png" title="Current Object Info" onclick="selectedInfo();">
+		<input class="button" type="image" src="images/delete.png" title="Delete Selected" onclick="deleteSelected();" />
+		<input class="button" type="image" src="images/copy.png" title="Copy Selected" onclick="copySelected();" />
+		<input class="button" type="image" src="images/paste.png" title="Paste" onclick="pasteSelected();" />
 	</div>
 
 
@@ -182,33 +182,33 @@ form label:active, form button:active {
 		<input type="color" id="drawingColor">
 		<br>
 		<br>
-		<input class="button" type="image" src="images/line.png" onclick="currentFunction='line'; deselect(); changeStatus();"/>
-		<input class="button" type="image" src="images/triangle.png" onclick="currentFunction='triangle'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/line.png" title="Draw Line" onclick="currentFunction='line'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/triangle.png" title="Draw Triangle" onclick="currentFunction='triangle'; deselect(); changeStatus();"/>
 		<br>
-		<input class="button" type="image" src="images/square.png" onclick="currentFunction='rectangle'; deselect(); changeStatus();"/>
-		<input class="button" type="image" src="images/circle.png" onclick="currentFunction='circle'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/square.png" title="Draw Rectangle" onclick="currentFunction='rectangle'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/circle.png" title="Draw Circle" onclick="currentFunction='circle'; deselect(); changeStatus();"/>
 		<br>
-		<input class="button" type="image" src="images/polygon.png" onclick="currentFunction='polygon'; deselect(); changeStatus();"/>
-		<input class="button" type="image" src="images/polyline.png" onclick="currentFunction='polyline'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/polygon.png" title="Draw Polygon" onclick="currentFunction='polygon'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/polyline.png" title="Draw Polyline" onclick="currentFunction='polyline'; deselect(); changeStatus();"/>
 		<br>
-		<input class="button" type="image" src="images/curve.png" onclick="currentFunction='curve'; deselect(); changeStatus();"/>
-		<input class="button" type="image" src="images/ellipse.png" onclick="currentFunction='ellipse'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/curve.png" title="Draw Curve" onclick="currentFunction='curve'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/ellipse.png" title="Draw Ellipse" onclick="currentFunction='ellipse'; deselect(); changeStatus();"/>
 	</div>
 	
 
 	<div class="positionright">
-		<input id="selecting" class="button" type="image" src="images/cursor.png" onclick="currentFunction='selecting'; changeStatus();" />
-		<input id="move" class="button" type="image" src="images/moving.png" onclick="currentFunction='translation'; changeStatus();"/>
+		<input id="selecting" class="button" type="image" src="images/cursor.png" title="Select Object" onclick="currentFunction='selecting'; changeStatus();" />
+		<input id="move" class="button" type="image" src="images/moving.png" title="Object Translation" onclick="currentFunction='translation'; changeStatus();"/>
 		<br>
-		<input id="rotate" class="button" type="image" src="images/rotation.webp" onclick="currentFunction='rotation'; changeStatus();"/>
-		<input id="scale" class="button" type="image" src="images/scaling.png" onclick="currentFunction='scaling'; changeStatus();"/>
+		<input id="rotate" class="button" type="image" src="images/rotation.webp" title="Object Rotation" onclick="currentFunction='rotation'; changeStatus();"/>
+		<input id="scale" class="button" type="image" src="images/scaling.png" title="Object Scalling" onclick="currentFunction='scaling'; changeStatus();"/>
 		<br>
 	</div>
 
 
 	<div class="positiontop">
-		<input class="button" type="image" src="images/undo.webp" onclick="backButton();" />
-		<input class="button" type="image" src="images/redo.webp" onclick="redoButton();" />
+		<input class="button" type="image" src="images/undo.webp" title="Undo" onclick="backButton();" />
+		<input class="button" type="image" src="images/redo.webp" title="Redo" onclick="redoButton();" />
 	</div>
 
 	<div id="myModal" class="modal">
