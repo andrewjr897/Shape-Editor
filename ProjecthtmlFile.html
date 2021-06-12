@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+
+<style type="text/css">
+
+.button {
+  background-color: rgb(78,111,135);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  border-radius: 5px;
+  border: 1px ridge black;
+}
+
+.canvas {
+	position: absolute;
+	background-color: LightGray;
+	top: 40px;
+	left: 10px;
+}
+
+.positionright {
+	position: absolute;
+	left: 763px;
+	top: 40px;
+}
+
+.positiontop {
+	position: absolute;
+	left: 350px;
+	top: 5px;
+}
+
+.positionrightbottom {
+	position: absolute;
+	left: 763px;
+	top: 485px;
+}
+
+.positiontopleft {
+	position: absolute;
+	left: 10px;
+	top: 5px;
+}
+
+.positiontopright {
+	position: absolute;
+	left: 620px;
+	top: 5px;
+}
+
+.positionbottomleft {
+	position: absolute;
+	left: 12px;
+	top: 675px;
+}
+
+.positionbottomright {
+	position: absolute;
+	top: 675px;
+	left: 645px;
+}
+
+.button:hover {
+	background-color: #59C9E1;
+  	color: white;
+}
+
+form label, form button {
+  background-color: #7F9CCB;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px ridge black;
+  font-size: 0.8rem;
+  height: 50px;
+  width: 50px;
+  top: 300px;
+  opacity: 0;
+}
+
+form label:hover, form button:hover {
+  background-color: #2D5BA3;
+  color: white;
+}
+
+form label:active, form button:active {
+  background-color: #0D3F8F;
+  color: white;
+}
+
+.file {
+	position: absolute;
+	padding-right: 100px;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 20%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* The Close Button */
+.closeTwo {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.closeTwo:hover,
+.closeTwo:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+</style>
+
+
+<head>
+	<title></title>
+</head>
+<body>
+	
+	<div class="positiontopleft">
+		<input class="button" type="image" src="images/upload.webp" onclick="uploadFile();">
+		<input class="button" type="image" id="saveFile" src="images/save.png" onclick="save();" />
+		<input class="button" type="image" src="images/newfile.png" onclick="newFile();">
+		<input class="button" type="image" src="images/image.png" onclick="downloadImage();">
+	</div>
+	
+
+	<div class="positiontopright">
+		<input class="button" type="image" src="images/info.png" onclick="selectedInfo();">
+		<input class="button" type="image" src="images/delete.png" onclick="deleteSelected();" />
+		<input class="button" type="image" src="images/copy.png" onclick="copySelected();" />
+		<input class="button" type="image" src="images/paste.png" onclick="pasteSelected();" />
+	</div>
+
+
+	<div class="positionrightbottom">
+		<label id="drawingColorLabel" for="drawingColor">Color:</label><br>
+		<input type="color" id="drawingColor">
+		<br>
+		<br>
+		<input class="button" type="image" src="images/line.png" onclick="currentFunction='line'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/triangle.png" onclick="currentFunction='triangle'; deselect(); changeStatus();"/>
+		<br>
+		<input class="button" type="image" src="images/square.png" onclick="currentFunction='rectangle'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/circle.png" onclick="currentFunction='circle'; deselect(); changeStatus();"/>
+		<br>
+		<input class="button" type="image" src="images/polygon.png" onclick="currentFunction='polygon'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/polyline.png" onclick="currentFunction='polyline'; deselect(); changeStatus();"/>
+		<br>
+		<input class="button" type="image" src="images/curve.png" onclick="currentFunction='curve'; deselect(); changeStatus();"/>
+		<input class="button" type="image" src="images/ellipse.png" onclick="currentFunction='ellipse'; deselect(); changeStatus();"/>
+	</div>
+	
+
+	<div class="positionright">
+		<input id="selecting" class="button" type="image" src="images/cursor.png" onclick="currentFunction='selecting'; changeStatus();" />
+		<input id="move" class="button" type="image" src="images/moving.png" onclick="currentFunction='translation'; changeStatus();"/>
+		<br>
+		<input id="rotate" class="button" type="image" src="images/rotation.webp" onclick="currentFunction='rotation'; changeStatus();"/>
+		<input id="scale" class="button" type="image" src="images/scaling.png" onclick="currentFunction='scaling'; changeStatus();"/>
+		<br>
+	</div>
+
+
+	<div class="positiontop">
+		<input class="button" type="image" src="images/undo.webp" onclick="backButton();" />
+		<input class="button" type="image" src="images/redo.webp" onclick="redoButton();" />
+	</div>
+
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p>Save file as:</p>
+			<input type="text" id="fileName" value="MyCanvas">
+			<br>
+			<br>
+			<button id="saveFileBox">Save</button>
+			<button id="cancelSaveBox">Cancel</button>	
+		</div>
+	</div>
+
+	<div id="myModalUpload" class="modal">
+		<div class="modal-content">
+			<span class="closeTwo">&times;</span>
+			<p>Select the file you would like to upload:</p>
+			<input class="file" type="file" id="fileUpload" name="uploads">
+			<br>
+			<p>Once a file has been selected press upload:</p>
+			<button id="importButton">Import</button>	
+			<button id="cancelUploadBox">Cancel</button>	
+		</div>
+	</div>
+
+	<div id="selectedModal" class="modal">
+		<div class="modal-content">
+			<span class="closeTwo">&times;</span>
+			<p id="SelectedType"></p>
+			<p id="SelectedLayer"></p>
+			<label id="SelectedColor" for="currentColor">Object Color:</label>
+			<input type="color" name="selectedcolor" id="currentColor">
+			<br>
+			<br>
+			<button id="cancelInfoButton">Done</button>	
+		</div>
+	</div>
+
+	<div class="positionbottomleft">
+		<p id="x&y">X=0, Y=0</p>
+	</div>
+
+	<div class="positionbottomright">
+		<p id="currently">Status: selecting</p>
+	</div>
+	
+
+	<canvas class="canvas" id="canvas" width="750" height="650">	
+	
+</body>
+
+<script type="text/javascript" src="ProjectjsFile.js"></script>
+
+</html>
